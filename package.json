@@ -1,0 +1,23 @@
+{
+  "name": "powell-guitar",
+  "version": "1.0.0",
+  "description": "Powell Guitar Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'no build yet'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirbyjs/powell-guitar.git"
+  },
+  "author": "kirbyjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kirbyjs/powell-guitar/issues"
+  },
+  "homepage": "https://github.com/kirbyjs/powell-guitar#readme",
+  "dependencies": {
+    "firebase": "^9.9.1"
+  }
+}
