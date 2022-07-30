@@ -1,10 +1,21 @@
 {
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "predeploy": ["pnpm build"],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssrServer"
+      }
     ]
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5050
+    }
   }
 }
