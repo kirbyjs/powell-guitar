@@ -1,20 +1,41 @@
+# Build
+/dist
+/lib
+/lib-types
+/server
+
+# Development
+node_modules
+
+# Cache
+.cache
+.mf
+.vscode
+.rollup.cache
+tsconfig.tsbuildinfo
+
+# Logs
 logs
 *.log
 npm-debug.log*
-firebase-debug.log*
-firebase-debug.*.log*
-.firebase/
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-coverage
-node_modules/
-.npm
-.eslintcache
-.node_repl_history
-*.tgz
-.env
+# Editor
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-/build
-/.svelte-kit
-/package
-/public
-/functions/ssrServer
+# Yarn
+.yarn/*
+!.yarn/releases
+
+# Cloudflare
+functions/**/*.js
