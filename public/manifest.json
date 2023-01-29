@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "powell-guitar",
+  "short_name": "PowellGuitar",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Powell Guitar"
+}
