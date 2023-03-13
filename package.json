@@ -10,7 +10,7 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adaptors/cloudflare-pages/vite.config.ts",
+    "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "wrangler pages dev ./dist",
     "dev": "vite --mode ssr",
@@ -39,7 +39,7 @@
     "undici": "^5.20.0",
     "vite": "^4.1.4",
     "vite-tsconfig-paths": "^4.0.5",
-    "wrangler": "^2.12.2"
+    "wrangler": "latest"
   },
   "dependencies": {
     "@builder.io/qwik": "^0.21.0",
