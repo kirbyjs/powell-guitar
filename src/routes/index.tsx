@@ -1,158 +1,76 @@
-import { component$ } from "@builder.io/qwik";
+import {
+  component$,
+  useContextProvider,
+  useStore,
+  useStyles$,
+  useTask$,
+} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link } from "@builder.io/qwik-city";
+import backgroundStyles from "./background.css?inline";
+import Card from "~/components/common/Card";
+import Contact from "~/components/common/Contact";
+import Testimonials from "~/components/common/Testimonials";
+import { LandingPageContentful, LandingPageStore } from "~/types/contentful";
+import { landingCxt } from "~/context";
+import { landingPageQuery } from "~/queries/landing-page";
+import { contentfulRequest } from "~/services/contentful";
 
 export default component$(() => {
+  useStyles$(backgroundStyles);
+  const store = useStore({
+    landingPage: {} as LandingPageContentful,
+  });
+  useContextProvider(landingCxt, store);
+
+  useTask$(async () => {
+    const data = await contentfulRequest<LandingPageStore>(landingPageQuery);
+    store.landingPage = data.landingPage;
+  });
+
   return (
-    <div>
-      <h1>
-        Welcome to Qwik <span class="lightning">⚡️</span>
-      </h1>
-
-      <ul>
-        <li>
-          Check out the <code>src/routes</code> directory to get started.
-        </li>
-        <li>
-          Add integrations with <code>npm run qwik add</code>.
-        </li>
-        <li>
-          More info about development in <code>README.md</code>
-        </li>
-      </ul>
-
-      <h2>Commands</h2>
-
-      <table class="commands">
-        <tr>
-          <td>
-            <code>npm run dev</code>
-          </td>
-          <td>Start the dev server and watch for changes.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run preview</code>
-          </td>
-          <td>Production build and start preview server.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run build</code>
-          </td>
-          <td>Production build.</td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add</code>
-          </td>
-          <td>Select an integration to add.</td>
-        </tr>
-      </table>
-
-      <h2>Add Integrations</h2>
-
-      <table class="commands">
-        <tr>
-          <td>
-            <code>npm run qwik add azure-swa</code>
-          </td>
-          <td>
-            <a
-              href="https://learn.microsoft.com/azure/static-web-apps/overview"
-              target="_blank"
-            >
-              Azure Static Web Apps
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add cloudflare-pages</code>
-          </td>
-          <td>
-            <a href="https://developers.cloudflare.com/pages" target="_blank">
-              Cloudflare Pages Server
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add express</code>
-          </td>
-          <td>
-            <a href="https://expressjs.com/" target="_blank">
-              Nodejs Express Server
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add netlify-edge</code>
-          </td>
-          <td>
-            <a href="https://docs.netlify.com/" target="_blank">
-              Netlify Edge Functions
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <code>npm run qwik add static</code>
-          </td>
-          <td>
-            <a
-              href="https://qwik.builder.io/qwikcity/static-site-generation/overview/"
-              target="_blank"
-            >
-              Static Site Generation (SSG)
-            </a>
-          </td>
-        </tr>
-      </table>
-
-      <h2>Community</h2>
-
-      <ul>
-        <li>
-          <span>Questions or just want to say hi? </span>
-          <a href="https://qwik.builder.io/chat" target="_blank">
-            Chat on discord!
-          </a>
-        </li>
-        <li>
-          <span>Follow </span>
-          <a href="https://twitter.com/QwikDev" target="_blank">
-            @QwikDev
-          </a>
-          <span> on Twitter</span>
-        </li>
-        <li>
-          <span>Open issues and contribute on </span>
-          <a href="https://github.com/BuilderIO/qwik" target="_blank">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <span>Watch </span>
-          <a href="https://qwik.builder.io/media/" target="_blank">
-            Presentations, Podcasts, Videos, etc.
-          </a>
-        </li>
-      </ul>
-      <Link class="mindblow" href="/flower/">
-        Blow my mind 🤯
-      </Link>
-    </div>
+    <>
+      <section class="point-guitar relative flex items-center justify-center flex-col min-h-[40rem]">
+        <h1 class="text-white text-6xl p-10">{store.landingPage.title}</h1>
+        <p class="text-white text-3xl max-w-5xl px-10">
+          {store.landingPage.introduction}
+        </p>
+      </section>
+      <section class="flex items-end justify-center flex-col p-10 max-w-7xl m-auto min-h-[30rem]">
+        <Testimonials />
+      </section>
+      <section class="flex items-center justify-center flex-col bg-blue-300 dark:bg-blue-400 px-10 py-28 m-auto min-h-[30rem]">
+        <h2 className="pl-1 mt-[-2rem] mb-10 text-4xl tracking-tight font-extrabold text-white">
+          Services
+        </h2>
+        <div class="flex flex-col lg:flex-row items-center justify-around max-w-7xl lg:space-x-10 space-y-10 lg:space-y-0">
+          {store.landingPage.serviceCardsCollection?.items?.map((card) => (
+            <Card
+              key={card.cardTitle}
+              header={card.cardTitle}
+              imageSrc={card.cardPhoto.url}
+              text={card.cardDescription}
+            />
+          ))}
+        </div>
+      </section>
+      <section class="flex justify-center p-10 m-auto min-h-[30rem]">
+        <div class="py-8 lg:py-16 px-4 mx-auto w-full max-w-screen-md">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+            Contact Us
+          </h2>
+          <Contact />
+        </div>
+      </section>
+    </>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "PowellGuitar",
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
+      content: "PowellGuitar",
     },
   ],
 };

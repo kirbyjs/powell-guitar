@@ -16,15 +16,15 @@ export default component$(() => {
    * Dont remove the `<head>` and `<body>` elements.
    */
   useStyles$(globalStyles);
-
   return (
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
+        <script src="/dark-mode.js" />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body class="bg-white dark:bg-neutral-900" lang="en">
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
