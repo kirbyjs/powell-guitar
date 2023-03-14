@@ -3,7 +3,7 @@ on: [push]
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: development
+    environment: production
     strategy:
       matrix:
         node-version: [18]
@@ -20,8 +20,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-      - run: |
+          cache: 'pnpm'
+      - env:
+          VITE_PREVIEW_TOKEN: ${{ secrets.VITE_PREVIEW_TOKEN }}
+          VITE_DELIVERY_TOKEN: ${{ secrets.VITE_DELIVERY_TOKEN }}
+        run: |
           pnpm install
           pnpm build
 

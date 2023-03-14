@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import Button from "~/components/common/Button";
+import { component$ } from '@builder.io/qwik';
+import Button from '~/components/common/Button';
 
 interface CardProps {
   header: string;
@@ -31,7 +31,7 @@ export default component$((props: CardProps) => {
           More Info
           <svg
             aria-hidden="true"
-            className="w-4 h-4 ml-2 -mr-1"
+            class="w-4 h-4 ml-2 -mr-1"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"

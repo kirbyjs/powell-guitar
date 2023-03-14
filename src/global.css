@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  font-family: "Ubuntu", Verdana, sans-serif;
+  font-family: 'Ubuntu', Verdana, sans-serif;
   font-size: 1rem;
 }

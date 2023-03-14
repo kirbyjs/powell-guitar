@@ -1,13 +1,13 @@
-import { component$, useStore, useTask$ } from "@builder.io/qwik";
-import { FooterContentful, FooterStore } from "~/types/contentful";
-import { contentfulRequest } from "~/services/contentful";
-import { footerQuery } from "~/queries/footer";
+import { component$, useStore, useTask$ } from '@builder.io/qwik';
+import { FooterContentful, FooterStore } from '~/types/contentful';
+import { gqlClient } from '~/services/contentful';
+import { footerQuery } from '~/queries/footer';
 
 export default component$(() => {
   const store = useStore({
     footer: {} as FooterContentful,
   });
-  const phone = store.footer.phone?.replace(/\D/g, "");
+  const phone = store.footer.phone?.replace(/\D/g, '');
   const phoneParts = [
     phone?.substring(0, 3),
     phone?.substring(3, 6),
@@ -15,7 +15,7 @@ export default component$(() => {
   ];
 
   useTask$(async () => {
-    const data = await contentfulRequest<FooterStore>(footerQuery);
+    const data = await gqlClient.request<FooterStore>(footerQuery);
     store.footer = data.footer;
   });
   return (

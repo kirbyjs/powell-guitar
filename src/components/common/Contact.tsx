@@ -1,5 +1,5 @@
-import { component$ } from "@builder.io/qwik";
-import Button from "~/components/common/Button";
+import { component$ } from '@builder.io/qwik';
+import Button from '~/components/common/Button';
 
 export default component$(() => {
   return (
