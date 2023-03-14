@@ -9,6 +9,7 @@ import SunIcon from '~/components/icons/sun';
 import MoonIcon from '~/components/icons/moon';
 import headerStyles from './header.css?inline';
 import Button from '~/components/common/Button';
+import Logo from '~/images/powellguitar.png';
 
 export default component$(() => {
   useStyles$(headerStyles);
@@ -24,10 +25,7 @@ export default component$(() => {
   return (
     <header class="max-w-6xl mx-auto px-4 py-5 sm:px-10 justify-between flex flex-row items-center">
       <Link href="/" class="flex flex-row items-center gap-3">
-        <img
-          src="/src/images/powellguitar.png"
-          class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10"
-        />
+        <img src={Logo} class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
         <span class="font-bold text-2xl sm:text-3xl dark:text-white">
           PowellGuitar
         </span>
