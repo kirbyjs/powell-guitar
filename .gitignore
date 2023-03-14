@@ -40,4 +40,8 @@ lerna-debug.log*
 # Cloudflare
 functions/**/*.js
 
+# Graphql
+.graphqlconfig
+schema.graphql
+
 env/.env

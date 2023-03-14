@@ -1,14 +1,15 @@
-import { request } from "graphql-request";
+import { GraphQLClient } from 'graphql-request';
 
-export function contentfulRequest<R>(query: string) {
-  return request<R>(
-    `${import.meta.env.VITE_CONTENTFUL_GRAPHQL}${
-      import.meta.env.VITE_CONTENTFUL_SPACE_ID
-    }`,
-    query,
-    undefined,
-    {
-      Authorization: `Bearer ${import.meta.env.VITE_CONTENTFUL_BEARER_TOKEN}`,
-    }
-  );
-}
+const {
+  VITE_CONTENTFUL_GRAPHQL,
+  VITE_CONTENTFUL_SPACE_ID,
+  VITE_CONTENTFUL_BEARER_TOKEN,
+} = import.meta.env;
+const endpoint = `${VITE_CONTENTFUL_GRAPHQL}${VITE_CONTENTFUL_SPACE_ID}`;
+
+export const gqlClient = new GraphQLClient(endpoint, {
+  fetch,
+  headers: {
+    authorization: `Bearer ${VITE_CONTENTFUL_BEARER_TOKEN}`,
+  },
+});

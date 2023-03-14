@@ -3,17 +3,17 @@ import {
   useClientEffect$,
   useStore,
   useStyles$,
-} from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
-import SunIcon from "~/components/icons/sun";
-import MoonIcon from "~/components/icons/moon";
-import headerStyles from "./header.css?inline";
-import Button from "~/components/common/Button";
+} from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
+import SunIcon from '~/components/icons/sun';
+import MoonIcon from '~/components/icons/moon';
+import headerStyles from './header.css?inline';
+import Button from '~/components/common/Button';
 
 export default component$(() => {
   useStyles$(headerStyles);
   const store = useStore({
-    theme: "light",
+    theme: 'light',
     navShown: false,
   });
 
@@ -35,7 +35,7 @@ export default component$(() => {
       <div class="w-full flex-grow lg:flex lg:items-center lg:pl-10 lg:w-auto text-amber-600 dark:text-white">
         <div
           class={`text-md ${
-            store.navShown ? "floating-nav top-[70px] sm:top-[90px]" : "hidden"
+            store.navShown ? 'floating-nav top-[70px] sm:top-[90px]' : 'hidden'
           } lg:flex-grow lg:block lg:!relative lg:!p-0 lg:top-auto dark:bg-neutral-900`}
         >
           <a
@@ -93,17 +93,17 @@ export default component$(() => {
         <div
           class="cursor-pointer"
           onClick$={() => {
-            if (store.theme === "dark") {
-              store.theme = "light";
-              document.documentElement.classList.remove("dark");
+            if (store.theme === 'dark') {
+              store.theme = 'light';
+              document.documentElement.classList.remove('dark');
             } else {
-              store.theme = "dark";
-              document.documentElement.classList.add("dark");
+              store.theme = 'dark';
+              document.documentElement.classList.add('dark');
             }
             localStorage.theme = store.theme;
           }}
         >
-          {store.theme === "light" ? <SunIcon /> : <MoonIcon />}
+          {store.theme === 'light' ? <SunIcon /> : <MoonIcon />}
         </div>
       </div>
     </header>

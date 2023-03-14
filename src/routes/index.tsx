@@ -4,16 +4,16 @@ import {
   useStore,
   useStyles$,
   useTask$,
-} from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
-import backgroundStyles from "./background.css?inline";
-import Card from "~/components/common/Card";
-import Contact from "~/components/common/Contact";
-import Testimonials from "~/components/common/Testimonials";
-import { LandingPageContentful, LandingPageStore } from "~/types/contentful";
-import { landingCxt } from "~/context";
-import { landingPageQuery } from "~/queries/landing-page";
-import { contentfulRequest } from "~/services/contentful";
+} from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
+import backgroundStyles from './background.css?inline';
+import Card from '~/components/common/Card';
+import Contact from '~/components/common/Contact';
+import Testimonials from '~/components/common/Testimonials';
+import { LandingPageContentful, LandingPageStore } from '~/types/contentful';
+import { landingCxt } from '~/context';
+import { landingPageQuery } from '~/queries/landing-page';
+import { gqlClient } from '~/services/contentful';
 
 export default component$(() => {
   useStyles$(backgroundStyles);
@@ -23,7 +23,7 @@ export default component$(() => {
   useContextProvider(landingCxt, store);
 
   useTask$(async () => {
-    const data = await contentfulRequest<LandingPageStore>(landingPageQuery);
+    const data = await gqlClient.request<LandingPageStore>(landingPageQuery);
     store.landingPage = data.landingPage;
   });
 
@@ -39,7 +39,7 @@ export default component$(() => {
         <Testimonials />
       </section>
       <section class="flex items-center justify-center flex-col bg-blue-300 dark:bg-blue-400 px-10 py-28 m-auto min-h-[30rem]">
-        <h2 className="pl-1 mt-[-2rem] mb-10 text-4xl tracking-tight font-extrabold text-white">
+        <h2 class="pl-1 mt-[-2rem] mb-10 text-4xl tracking-tight font-extrabold text-white">
           Services
         </h2>
         <div class="flex flex-col lg:flex-row items-center justify-around max-w-7xl lg:space-x-10 space-y-10 lg:space-y-0">
@@ -66,11 +66,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "PowellGuitar",
+  title: 'PowellGuitar',
   meta: [
     {
-      name: "description",
-      content: "PowellGuitar",
+      name: 'description',
+      content: 'PowellGuitar',
     },
   ],
 };

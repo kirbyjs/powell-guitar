@@ -1,10 +1,10 @@
-import { gql } from "graphql-request";
+import { gql } from 'graphql-request';
+
+const { VITE_CONTENTFUL_LANDING_PAGE_ID } = import.meta.env;
 
 export const landingPageQuery = gql`
   {
-    landingPage(id: "${
-      import.meta.env.VITE_CONTENTFUL_LANDING_PAGE_ID
-    }", preview: true) {
+    landingPage(id: "${VITE_CONTENTFUL_LANDING_PAGE_ID}", preview: true) {
       title
       introduction
       testimonialsCollection(preview: true) {

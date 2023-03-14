@@ -1,4 +1,4 @@
-import { createContextId } from "@builder.io/qwik";
-import { LandingPageStore } from "~/types/contentful";
+import { createContextId } from '@builder.io/qwik';
+import { LandingPageStore } from '~/types/contentful';
 
-export const landingCxt = createContextId<LandingPageStore>("entryCxt");
+export const landingCxt = createContextId<LandingPageStore>('entryCxt');
