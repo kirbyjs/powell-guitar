@@ -1,16 +1,16 @@
 import { gql } from 'graphql-request';
 
-const { VITE_CONTENTFUL_FOOTER_ID } = import.meta.env;
+const { VITE_CONTENTFUL_FOOTER_ID, VITE_PREVIEW } = import.meta.env;
 
-export const footerQuery = gql`
+const genFooterQuery = (preview: boolean) => gql`
   {
-    footer(id: "${VITE_CONTENTFUL_FOOTER_ID}", preview: true) {
+    footer(id: "${VITE_CONTENTFUL_FOOTER_ID}", preview: ${preview}) {
       title
       phone
       email
-      socialMediaIconsCollection(preview: true) {
+      socialMediaIconsCollection(preview: ${preview}) {
         items {
-        ... on SocialMediaIcon {
+          ... on SocialMediaIcon {
             socialMediaLink
             socialMediaIcon {
               url
@@ -21,3 +21,6 @@ export const footerQuery = gql`
     }
   }
 `;
+
+export const footerQuery = genFooterQuery(VITE_PREVIEW);
+export const footerPreviewQuery = genFooterQuery(true);

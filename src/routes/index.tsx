@@ -1,38 +1,25 @@
-import {
-  component$,
-  useContextProvider,
-  useStore,
-  useStyles$,
-  useTask$,
-} from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import backgroundStyles from './background.css?inline';
-import Card from '~/components/common/Card';
-import Contact from '~/components/common/Contact';
-import Testimonials from '~/components/common/Testimonials';
-import { LandingPageContentful, LandingPageStore } from '~/types/contentful';
 import { landingCxt } from '~/context';
 import { landingPageQuery } from '~/queries/landing-page';
-import { gqlClient } from '~/services/contentful';
+import { useGraphQLQuery } from '~/hooks/gql';
+import Testimonials from '~/components/common/Testimonials';
+import Card from '~/components/common/Card';
+import Contact from '~/components/common/Contact';
+import backgroundStyles from './background.css?inline';
 
 export default component$(() => {
   useStyles$(backgroundStyles);
-  const store = useStore({
-    landingPage: {} as LandingPageContentful,
-  });
-  useContextProvider(landingCxt, store);
-
-  useTask$(async () => {
-    const data = await gqlClient.request<LandingPageStore>(landingPageQuery);
-    store.landingPage = data.landingPage;
-  });
+  const {
+    data: { landingPage },
+  } = useGraphQLQuery(landingPageQuery, landingCxt);
 
   return (
     <>
       <section class="point-guitar relative flex items-center justify-center flex-col min-h-[40rem]">
-        <h1 class="text-white text-6xl p-10">{store.landingPage.title}</h1>
+        <h1 class="text-white text-6xl p-10">{landingPage?.title}</h1>
         <p class="text-white text-3xl max-w-5xl px-10">
-          {store.landingPage.introduction}
+          {landingPage?.introduction}
         </p>
       </section>
       <section class="flex items-end justify-center flex-col p-10 max-w-7xl m-auto min-h-[30rem]">
@@ -43,7 +30,7 @@ export default component$(() => {
           Services
         </h2>
         <div class="flex flex-col lg:flex-row items-center justify-around max-w-7xl lg:space-x-10 space-y-10 lg:space-y-0">
-          {store.landingPage.serviceCardsCollection?.items?.map((card) => (
+          {landingPage?.serviceCardsCollection?.items?.map((card) => (
             <Card
               key={card.cardTitle}
               header={card.cardTitle}

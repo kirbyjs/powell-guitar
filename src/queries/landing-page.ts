@@ -1,13 +1,13 @@
 import { gql } from 'graphql-request';
 
-const { VITE_CONTENTFUL_LANDING_PAGE_ID } = import.meta.env;
+const { VITE_CONTENTFUL_LANDING_PAGE_ID, VITE_PREVIEW } = import.meta.env;
 
-export const landingPageQuery = gql`
+const genLandingPageQuery = (preview: boolean) => gql`
   {
-    landingPage(id: "${VITE_CONTENTFUL_LANDING_PAGE_ID}", preview: true) {
+    landingPage(id: "${VITE_CONTENTFUL_LANDING_PAGE_ID}", preview: ${preview}) {
       title
       introduction
-      testimonialsCollection(preview: true) {
+      testimonialsCollection(preview: ${preview}) {
         items {
           ... on Testimonial {
             author
@@ -16,7 +16,7 @@ export const landingPageQuery = gql`
           }
         }
       }
-      serviceCardsCollection(preview: true) {
+      serviceCardsCollection(preview: ${preview}) {
         items {
           ... on ServiceCard {
             cardTitle
@@ -30,3 +30,6 @@ export const landingPageQuery = gql`
     }
   }
 `;
+
+export const landingPageQuery = genLandingPageQuery(VITE_PREVIEW);
+export const landingPagePreviewQuery = genLandingPageQuery(true);
