@@ -23,10 +23,13 @@ export function useGraphQLQuery<D extends object>(
 
   useTask$(async () => {
     const preview = route.url.searchParams.get('preview') === 'true';
+    const q = preview
+      ? query.replace(/preview:\s*false/g, 'preview: true')
+      : query;
     const client = preview ? gqlClientPreview : gqlClient;
 
     store.isLoading = true;
-    store.data = await client.request<D>(query);
+    store.data = await client.request<D>(q);
     store.isLoading = false;
   });
 
