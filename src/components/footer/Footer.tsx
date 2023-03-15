@@ -1,40 +1,37 @@
-import { component$, useStore, useTask$ } from '@builder.io/qwik';
-import { FooterContentful, FooterStore } from '~/types/contentful';
-import { gqlClient } from '~/services/contentful';
+import { component$ } from '@builder.io/qwik';
+import { FooterStore } from '~/types/contentful';
 import { footerQuery } from '~/queries/footer';
+import { useGraphQLQuery } from '~/hooks/gql';
+import { footerCxt } from '~/context';
 
 export default component$(() => {
-  const store = useStore({
-    footer: {} as FooterContentful,
-  });
-  const phone = store.footer.phone?.replace(/\D/g, '');
+  const {
+    data: { footer },
+  } = useGraphQLQuery<FooterStore>(footerQuery, footerCxt);
+  const phone = footer?.phone?.replace(/\D/g, '');
   const phoneParts = [
     phone?.substring(0, 3),
     phone?.substring(3, 6),
     phone?.substring(6),
   ];
 
-  useTask$(async () => {
-    const data = await gqlClient.request<FooterStore>(footerQuery);
-    store.footer = data.footer;
-  });
   return (
     <footer class="bg-gray-100 dark:bg-blue-400">
       <div class="max-w-6xl mx-auto p-10 justify-between flex flex-row">
         <div class="flex flex-col">
-          <span class="text-2xl dark:text-white">{store.footer.title}</span>
+          <span class="text-2xl dark:text-white">{footer?.title}</span>
           <a class="text-amber-600 dark:text-amber-300" href={`tel:${phone}`}>
             ({phoneParts[0]}) {phoneParts[1]}-{phoneParts[2]}
           </a>
           <a
             class="text-amber-600 dark:text-amber-300"
-            href={`mailto:${store.footer.email}`}
+            href={`mailto:${footer?.email}`}
           >
-            {store.footer.email}
+            {footer?.email}
           </a>
         </div>
         <div class="flex flex-row justify-center items-center gap-5">
-          {store.footer.socialMediaIconsCollection?.items?.map((icon) => (
+          {footer?.socialMediaIconsCollection?.items?.map((icon) => (
             <a
               key={icon.socialMediaLink}
               href={icon.socialMediaLink}

@@ -4,10 +4,10 @@ const { VITE_CONTENTFUL_LANDING_PAGE_ID } = import.meta.env;
 
 export const landingPageQuery = gql`
   {
-    landingPage(id: "${VITE_CONTENTFUL_LANDING_PAGE_ID}", preview: true) {
+    landingPage(id: "${VITE_CONTENTFUL_LANDING_PAGE_ID}", preview: false) {
       title
       introduction
-      testimonialsCollection(preview: true) {
+      testimonialsCollection(preview: false) {
         items {
           ... on Testimonial {
             author
@@ -16,7 +16,7 @@ export const landingPageQuery = gql`
           }
         }
       }
-      serviceCardsCollection(preview: true) {
+      serviceCardsCollection(preview: false) {
         items {
           ... on ServiceCard {
             cardTitle

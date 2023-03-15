@@ -3,7 +3,9 @@ import { landingCxt } from '~/context';
 
 // @ts-ignore
 export default component$(() => {
-  const { landingPage } = useContext(landingCxt);
+  const {
+    data: { landingPage },
+  } = useContext(landingCxt);
 
   return landingPage?.testimonialsCollection?.items?.map((testimonial) => (
     // @ts-ignore
