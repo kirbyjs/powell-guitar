@@ -1,5 +1,5 @@
-import { createContextId, Signal } from '@builder.io/qwik';
-import {
+import { createContextId } from '@builder.io/qwik';
+import type {
   AboutPageStore,
   EventsStore,
   FooterStore,
@@ -8,7 +8,7 @@ import {
   LandingPageStore,
   ResourcesStore,
 } from '~/types/contentful';
-import { gqlResponse } from '~/hooks/gql';
+import type { gqlResponse } from '~/hooks/gql';
 
 export const landingCxt =
   createContextId<gqlResponse<LandingPageStore>>('landingCxt');

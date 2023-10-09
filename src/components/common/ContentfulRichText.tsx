@@ -1,17 +1,13 @@
-import {
-  BLOCKS,
-  MARKS,
-  INLINES,
+import type {
   Document,
   AssetHyperlink,
   Hyperlink,
 } from '@contentful/rich-text-types';
-import {
-  documentToReactComponents,
-  Options,
-} from '@contentful/rich-text-react-renderer';
-import { Component, JSXChildren } from '@builder.io/qwik';
-import { Asset, AssetLink } from '~/types/contentful';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import type { Options } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import type { Component, JSXChildren } from '@builder.io/qwik';
+import type { Asset, AssetLink } from '~/types/contentful';
 
 function buildOptions(assetMap: Map<string, Asset>): Options {
   const renderAssetHyperlink = (node: AssetHyperlink) => {

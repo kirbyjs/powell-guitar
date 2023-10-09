@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { FooterStore } from '~/types/contentful';
+import type { FooterStore } from '~/types/contentful';
 import { footerQuery } from '~/queries/footer';
 import { useGraphQLQuery } from '~/hooks/gql';
 import { footerCxt } from '~/context';

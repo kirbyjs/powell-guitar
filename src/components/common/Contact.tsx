@@ -116,7 +116,7 @@ export default component$(() => {
         type="submit"
         class="md:float-right py-3 px-5"
         preventdefault:click
-        onClick$={(e) => {
+        onClick$={() => {
           const isValid = formRef.value?.checkValidity();
           const token = hcaptcha.getResponse();
 
@@ -140,7 +140,7 @@ export default component$(() => {
                 store.message = '';
                 store.wasFormSuccessful = true;
               })
-              .catch((e) => {
+              .catch(() => {
                 store.wasFormSparkErrorThrown = true;
               });
           }

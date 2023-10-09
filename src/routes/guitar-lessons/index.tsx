@@ -5,7 +5,7 @@ import { useGraphQLQuery } from '~/hooks/gql';
 import backgroundStyles from '../background.css?inline';
 import { guitarLessonsQuery } from '~/queries/guitarLessons';
 import ContentfulRichText from '~/components/common/ContentfulRichText';
-import { Document } from '@contentful/rich-text-types';
+import type { Document } from '@contentful/rich-text-types';
 
 export default component$(() => {
   useStyles$(backgroundStyles);

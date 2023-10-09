@@ -1,9 +1,5 @@
-import {
-  ContextId,
-  useContextProvider,
-  useStore,
-  useTask$,
-} from '@builder.io/qwik';
+import type { ContextId, QRL } from '@builder.io/qwik';
+import { useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
 import { gqlClient, gqlClientPreview } from '~/services/contentful';
 import { useLocation } from '@builder.io/qwik-city';
 
@@ -14,7 +10,7 @@ export interface gqlResponse<D> {
 export function useGraphQLQuery<D extends object>(
   query: string,
   cxt: ContextId<gqlResponse<D>>,
-  dataMapper?: (data: any) => Promise<any>,
+  dataMapper?: QRL<(data: any) => Promise<any>>,
 ) {
   const route = useLocation();
   const store = useStore<gqlResponse<Partial<D>>>({

@@ -1,11 +1,5 @@
-import {
-  component$,
-  QwikIntrinsicElements,
-  Slot,
-  useStore,
-} from '@builder.io/qwik';
+import { component$, useStore } from '@builder.io/qwik';
 import ContentfulRichText from '~/components/common/ContentfulRichText';
-import { gqlResponse } from '~/hooks/gql';
 
 type AccordionProps = {
   question: string;

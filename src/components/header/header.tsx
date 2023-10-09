@@ -10,7 +10,6 @@ import SunIcon from '~/components/icons/sun';
 import MoonIcon from '~/components/icons/moon';
 import headerStyles from './header.css?inline';
 import Button from '~/components/common/Button';
-import Logo from '~/images/powellguitar.png';
 
 export default component$(() => {
   useStyles$(headerStyles);

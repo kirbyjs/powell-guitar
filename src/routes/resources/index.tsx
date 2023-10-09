@@ -5,9 +5,9 @@ import { useGraphQLQuery } from '~/hooks/gql';
 import backgroundStyles from '../background.css?inline';
 import { resourcesQuery } from '~/queries/resources';
 import ContentfulRichText from '~/components/common/ContentfulRichText';
-import { Document } from '@contentful/rich-text-types';
+import type { Document } from '@contentful/rich-text-types';
 import { richTextFromMarkdown } from '@contentful/rich-text-from-markdown';
-import { ResourcesStore } from '~/types/contentful';
+import type { ResourcesStore } from '~/types/contentful';
 import Accordion from '~/components/common/Accordion';
 
 export default component$(() => {
