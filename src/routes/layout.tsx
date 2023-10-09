@@ -4,9 +4,9 @@ import Footer from '~/components/footer/Footer';
 
 export default component$(() => {
   return (
-    <main>
+    <main class="relative min-h-screen">
       <Header />
-      <section>
+      <section class="pb-40">
         <Slot />
       </section>
       <Footer />

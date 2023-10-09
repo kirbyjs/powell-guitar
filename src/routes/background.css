@@ -1,6 +1,6 @@
 .point-guitar {
-  background-image: url('/src/images/guitar-background-center.jpg'),
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-image: url('/src/images/guitar-4293687_1280.jpg'),
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75));
   background-position: center center;
   background-size: cover;
   background-blend-mode: overlay;

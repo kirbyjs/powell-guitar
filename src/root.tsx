@@ -22,6 +22,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <script src="/dark-mode.js" />
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
         <RouterHead />
       </head>
       <body class="bg-white dark:bg-neutral-900" lang="en">

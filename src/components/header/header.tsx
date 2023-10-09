@@ -1,6 +1,7 @@
+import ImgPowellguitar from '~/images/powellguitar.png?jsx';
 import {
   component$,
-  useClientEffect$,
+  useVisibleTask$,
   useStore,
   useStyles$,
 } from '@builder.io/qwik';
@@ -18,14 +19,14 @@ export default component$(() => {
     navShown: false,
   });
 
-  useClientEffect$(() => {
+  useVisibleTask$(() => {
     store.theme = localStorage.theme;
   });
 
   return (
     <header class="max-w-6xl mx-auto px-4 py-5 sm:px-10 justify-between flex flex-row items-center">
       <Link href="/" class="flex flex-row items-center gap-3">
-        <img src={Logo} class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
+        <ImgPowellguitar class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
         <span class="font-bold text-2xl sm:text-3xl dark:text-white">
           PowellGuitar
         </span>
@@ -36,32 +37,32 @@ export default component$(() => {
             store.navShown ? 'floating-nav top-[70px] sm:top-[90px]' : 'hidden'
           } lg:flex-grow lg:block lg:!relative lg:!p-0 lg:top-auto dark:bg-neutral-900`}
         >
-          <a
-            href="#responsive-header"
+          <Link
+            href="/about"
             class="block pt-4 lg:inline-block lg:mt-0 hover: mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             About
-          </a>
-          <a
-            href="#responsive-header"
-            class="block pt-4 lg:inline-block lg:mt-0 mr-7 hover:text-amber-700 dark:hover:text-amber-300"
+          </Link>
+          <Link
+            href="/guitar-lessons"
+            class="block pt-4 lg:inline-block lg:mt-0 hover: mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             Lessons
-          </a>
+          </Link>
           <a
-            href="#responsive-header"
+            href="/events"
             class="block pt-4 lg:inline-block lg:mt-0 mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             Events
           </a>
           <a
-            href="#responsive-header"
+            href="/guitar-repair"
             class="block pt-4 lg:inline-block lg:mt-0 mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             Repair
           </a>
           <a
-            href="#responsive-header"
+            href="/resources"
             class="block pt-4 lg:inline-block lg:mt-0 hover:text-amber-700 dark:hover:text-amber-300"
           >
             Resources
@@ -85,9 +86,11 @@ export default component$(() => {
             </svg>
           </Button>
         </div>
-        <Button type="button" inverse class="px-3 py-1 lg:px-4 lg:py-2">
-          <a href="#">Contact</a>
-        </Button>
+        <Link href="/contact">
+          <Button type="button" inverse class="px-3 py-1 lg:px-4 lg:py-2">
+            Contact
+          </Button>
+        </Link>
         <div
           class="cursor-pointer"
           onClick$={() => {

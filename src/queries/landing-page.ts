@@ -24,6 +24,7 @@ export const landingPageQuery = gql`
             cardPhoto {
               url
             }
+            cardPageUrl
           }
         }
       }

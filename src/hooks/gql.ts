@@ -14,6 +14,7 @@ export interface gqlResponse<D> {
 export function useGraphQLQuery<D extends object>(
   query: string,
   cxt: ContextId<gqlResponse<D>>,
+  dataMapper?: (data: any) => Promise<any>,
 ) {
   const route = useLocation();
   const store = useStore<gqlResponse<Partial<D>>>({
@@ -27,9 +28,14 @@ export function useGraphQLQuery<D extends object>(
       ? query.replace(/preview:\s*false/g, 'preview: true')
       : query;
     const client = preview ? gqlClientPreview : gqlClient;
+    let data = await client.request<D>(q);
+
+    if (dataMapper) {
+      data = await dataMapper(data);
+    }
 
     store.isLoading = true;
-    store.data = await client.request<D>(q);
+    store.data = data;
     store.isLoading = false;
   });
 

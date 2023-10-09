@@ -4,7 +4,11 @@ type ButtonProps = {
   inverse?: boolean;
 } & QwikIntrinsicElements['button'];
 export default component$((props: ButtonProps) => {
-  const { inverse, ...buttonProps } = props;
+  const { inverse, ...otherProps } = props;
+  const buttonProps: QwikIntrinsicElements['button'] = {
+    type: 'button',
+    ...otherProps,
+  };
   let classes =
     'text-sm text-center rounded sm:w-fit focus:ring-4 focus:outline-none focus:ring-primary-300 ';
 
@@ -17,7 +21,7 @@ export default component$((props: ButtonProps) => {
   }
 
   return (
-    <button type="button" {...buttonProps} class={`${classes} ${props.class}`}>
+    <button {...buttonProps} class={`${classes} ${props.class}`}>
       <Slot />
     </button>
   );
