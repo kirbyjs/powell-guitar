@@ -29,7 +29,7 @@ jobs:
           pnpm build
 
       - name: Publish to Cloudflare Pages
-        uses: kirbyjs/pages-action@v1
+        uses: ./.github/actions/pages-action
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ec035740031019c89888d3e2f523a462
