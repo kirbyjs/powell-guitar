@@ -19,7 +19,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
-    "serve": "wrangler pages dev ./dist",
+    "serve": "wrangler pages dev ./dist --node-compat",
     "start": "vite --open --mode ssr",
     "verify": "pnpm run fmt.check && pnpm run lint",
     "qwik": "qwik"
