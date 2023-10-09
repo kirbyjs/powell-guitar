@@ -58,6 +58,7 @@
     "axios": "^1.5.1",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
+    "node-fetch": "^3.3.2",
     "path": "^0.12.7"
   }
 }
