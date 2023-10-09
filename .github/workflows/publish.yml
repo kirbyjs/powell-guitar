@@ -35,3 +35,4 @@ jobs:
           accountId: ec035740031019c89888d3e2f523a462
           projectName: powell-guitar
           directory: dist
+          wranglerVersion: '3'
