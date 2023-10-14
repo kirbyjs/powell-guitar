@@ -22,6 +22,7 @@ jobs:
           VITE_PREVIEW_TOKEN: ${{ secrets.VITE_PREVIEW_TOKEN }}
           VITE_DELIVERY_TOKEN: ${{ secrets.VITE_DELIVERY_TOKEN }}
         run: |
+          pnpm i -g firebase-tools
           pnpm install
           cd functions
           pnpm install
@@ -36,6 +37,7 @@ jobs:
           value: appDev
       - name: deploy app dev function
         run: |
+          firebase login:ci
           firebase deploy --only functions:appDev
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
