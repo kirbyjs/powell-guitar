@@ -37,7 +37,6 @@ jobs:
           value: appDev
       - name: deploy app dev function
         run: |
-          firebase login:ci
           firebase deploy --only functions:appDev
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
