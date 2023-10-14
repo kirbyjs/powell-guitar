@@ -38,9 +38,10 @@ jobs:
           value: appDev
       - name: deploy app dev function
         run: |
+          cat firebase.json
           echo "$GCP_SA_KEY" > /opt/gcp_key.json
           export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
-          firebase deploy --only functions:appDev --debug
+          firebase deploy --only functions:appDev
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
