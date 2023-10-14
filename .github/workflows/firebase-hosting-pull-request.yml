@@ -18,7 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - env:
+      - name: Build
+        env:
           VITE_PREVIEW_TOKEN: ${{ secrets.VITE_PREVIEW_TOKEN }}
           VITE_DELIVERY_TOKEN: ${{ secrets.VITE_DELIVERY_TOKEN }}
         run: |
@@ -37,6 +38,8 @@ jobs:
           value: appDev
       - name: deploy app dev function
         run: |
+          echo "$GCP_SA_KEY" > /opt/gcp_key.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
           firebase deploy --only functions:appDev
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
