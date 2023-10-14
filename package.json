@@ -10,16 +10,16 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
+    "build.server": "vite build -c adapters/firebase/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "wrangler pages publish ./dist",
+    "deploy": "firebase deploy",
     "dev": "vite --mode ssr",
     "dev:debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
-    "serve": "wrangler pages dev ./dist --node-compat",
+    "serve": "qwik build && firebase emulators:start",
     "start": "vite --open --mode ssr",
     "verify": "pnpm run fmt.check && pnpm run lint",
     "qwik": "qwik"
@@ -38,6 +38,7 @@
     "autoprefixer": "^10.4.16",
     "eslint": "^8.48.0",
     "eslint-plugin-qwik": "^1.2.13",
+    "firebase-tools": "12.7.0",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "react": "18.2.0",
@@ -46,8 +47,7 @@
     "typescript": "^5.2.2",
     "undici": "^5.25.4",
     "vite": "^4.4.11",
-    "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.11.0"
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
     "@builder.io/qwik": "^1.2.13",

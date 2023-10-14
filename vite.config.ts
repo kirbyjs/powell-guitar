@@ -13,8 +13,5 @@ export default defineConfig(() => {
       },
     },
     envDir: 'env',
-    define: {
-      'process.env': {},
-    },
   };
 });
