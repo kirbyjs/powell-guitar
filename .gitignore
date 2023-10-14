@@ -45,3 +45,7 @@ functions/**/*.js
 schema.graphql
 
 env/.env
+
+# Firebase
+functions/server
+functions/node_modules

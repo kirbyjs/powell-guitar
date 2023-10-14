@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { FooterStore } from '~/types/contentful';
+import type { FooterStore } from '~/types/contentful';
 import { footerQuery } from '~/queries/footer';
 import { useGraphQLQuery } from '~/hooks/gql';
 import { footerCxt } from '~/context';
@@ -16,7 +16,7 @@ export default component$(() => {
   ];
 
   return (
-    <footer class="bg-gray-100 dark:bg-blue-400">
+    <footer class="absolute bottom-0 w-full h-40 bg-gray-100 dark:bg-blue-400">
       <div class="max-w-6xl mx-auto p-10 justify-between flex flex-row">
         <div class="flex flex-col">
           <span class="text-2xl dark:text-white">{footer?.title}</span>
@@ -39,6 +39,8 @@ export default component$(() => {
             >
               <img
                 src={icon.socialMediaIcon.url}
+                height="40"
+                width="36"
                 class="w-8 sm:w-10 dark:invert"
               />
             </a>
