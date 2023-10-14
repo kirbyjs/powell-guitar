@@ -1,7 +1,6 @@
 {
   "projects": {
-    "powellguitar": "powellguitar-debe0",
-    "default": "powellguitar-debe0"
+    "powellguitar": "powellguitar-debe0"
   },
   "targets": {},
   "etags": {}

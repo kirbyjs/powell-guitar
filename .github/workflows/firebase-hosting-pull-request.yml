@@ -23,8 +23,23 @@ jobs:
           VITE_DELIVERY_TOKEN: ${{ secrets.VITE_DELIVERY_TOKEN }}
         run: |
           pnpm install
+          cd functions
+          pnpm install
+          cd ..
           pnpm verify
           pnpm build
+      - name: Update firebase rewrites
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: firebase.json
+          field: hosting.rewrites[0].function
+          value: appDev
+      - name: deploy app dev function
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions:appDev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

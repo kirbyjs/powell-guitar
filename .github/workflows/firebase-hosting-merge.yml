@@ -25,7 +25,17 @@ jobs:
           VITE_DELIVERY_TOKEN: ${{ secrets.VITE_DELIVERY_TOKEN }}
         run: |
           pnpm install
+          cd functions
+          pnpm install
+          cd ..
+          pnpm verify
           pnpm build
+      - name: deploy app dev function
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions:app
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
