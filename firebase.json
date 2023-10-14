@@ -11,6 +11,7 @@
     }
   ],
   "hosting": {
+    "site": "powellguitar",
     "public": "dist",
     "rewrites": [
       {
