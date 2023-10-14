@@ -35,9 +35,8 @@ jobs:
           field: hosting.rewrites[0].function
           value: appDev
       - name: deploy app dev function
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only functions:appDev
+        run: |
+          firebase deploy --only functions:appDev
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
