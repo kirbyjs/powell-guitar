@@ -6,8 +6,9 @@ import type {
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import type { Component, JSXChildren } from '@builder.io/qwik';
+import type { JSXChildren, JSXNode } from '@builder.io/qwik';
 import type { Asset, AssetLink } from '~/types/contentful';
+import { component$ } from '@builder.io/qwik';
 
 function buildOptions(assetMap: Map<string, Asset>): Options {
   const renderAssetHyperlink = (node: AssetHyperlink) => {
@@ -104,13 +105,15 @@ export type ContentfulRichTextProps = {
   json: Document;
   links?: AssetLink;
 };
-const ContentfulRichText = ({ json, links }: ContentfulRichTextProps) => {
+export default component$((props: ContentfulRichTextProps) => {
   const assetMap = new Map<string, Asset>();
 
-  for (const asset of links?.assets?.hyperlink ?? []) {
+  for (const asset of props.links?.assets?.hyperlink ?? []) {
     assetMap.set(asset.sys.id, asset);
   }
 
-  return documentToReactComponents(json, buildOptions(assetMap));
-};
-export default ContentfulRichText as unknown as Component<ContentfulRichTextProps>;
+  return documentToReactComponents(
+    props.json,
+    buildOptions(assetMap),
+  ) as JSXNode;
+});
