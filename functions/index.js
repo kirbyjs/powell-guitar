@@ -1,5 +1,10 @@
-import { https } from 'firebase-functions';
+import { onRequest } from 'firebase-functions/v2/https';
 import qwikApp from './server/entry-firebase.js';
 
-export const app = https.onRequest(qwikApp);
-export const appDev = app;
+export const ssr = onRequest(
+  {
+    memory: '1GiB',
+  },
+  qwikApp,
+);
+export const ssrDev = ssr;
