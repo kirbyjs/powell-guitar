@@ -9,7 +9,7 @@ import type {
   ResourcesStore,
 } from '~/types/contentful';
 import type { gqlResponse } from '~/hooks/gql';
-import { HeaderContext } from '~/types/header';
+import type { HeaderContext } from '~/types/header';
 
 export const landingCxt =
   createContextId<gqlResponse<LandingPageStore>>('landingCxt');

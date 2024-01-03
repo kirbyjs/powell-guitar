@@ -9,9 +9,7 @@ import VolumeHighIcon from '~/components/icons/VolumeHighIcon';
 import type { Song } from '~/types/contentful';
 import PauseIcon from '~/components/icons/PauseIcon';
 import { headerCxt } from '~/context';
-import { HeaderContext } from '~/types/header';
-import { log } from 'node:util';
-import { build } from 'vite';
+import type { HeaderContext } from '~/types/header';
 import CloseIcon from '~/components/icons/closeIcon';
 
 type MusicPlayerProps = {

@@ -1,11 +1,5 @@
 import ImgPowellGuitar from '~/images/powellguitar.png?jsx';
-import {
-  component$,
-  useStyles$,
-  useOnDocument,
-  $,
-  useContext,
-} from '@builder.io/qwik';
+import { component$, useStyles$, useContext } from '@builder.io/qwik';
 import SunIcon from '~/components/icons/sun';
 import MoonIcon from '~/components/icons/moon';
 import headerStyles from './header.css?inline';

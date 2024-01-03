@@ -2,11 +2,7 @@ import type {
   Document,
   AssetHyperlink,
   Hyperlink,
-  MARKS,
-  BLOCKS,
-  INLINES,
 } from '@contentful/rich-text-types';
-import types from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { JSXChildren, JSXNode } from '@builder.io/qwik';
