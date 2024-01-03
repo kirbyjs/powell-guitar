@@ -39,7 +39,7 @@ function getSliderStyles(
   const progress = (currentTime / songDuration) * 100;
   const isDarkMode = theme === 'dark';
   const lightSlider = `linear-gradient(to right, #eee ${progress}%, rgba(255, 255, 255, .3) ${progress}%)`;
-  const darkSlider = `linear-gradient(to right, #9e9e9e ${progress}%, #dadada ${progress}%)`;
+  const darkSlider = `linear-gradient(to right, #dadada ${progress}%, #9e9e9e ${progress}%)`;
 
   return {
     background: isDarkMode ? lightSlider : darkSlider,

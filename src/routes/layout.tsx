@@ -22,6 +22,8 @@ export default component$(() => {
     $(() => {
       if (localStorage.theme) {
         store.theme = localStorage.theme;
+      } else if (document.documentElement.classList.contains('dark')) {
+        store.theme = 'dark';
       }
     }),
   );

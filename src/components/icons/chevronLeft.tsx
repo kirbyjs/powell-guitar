@@ -4,7 +4,7 @@ type ChevronLeftProps = {
 export default function ChevronLeft(props: ChevronLeftProps) {
   return (
     <div
-      class="mr-20 hidden sm:block dark:fill-white"
+      class="mr-20 hidden sm:block dark:fill-white cursor-pointer"
       onClick$={props.onClick$}
     >
       <svg
