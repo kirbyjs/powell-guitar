@@ -20,7 +20,7 @@ export default component$(() => {
       <section class="point-guitar relative flex items-center justify-center flex-col min-h-[40rem]">
         <h1 class="text-white text-6xl p-10">{guitarLessons?.title}</h1>
       </section>
-      <section class="flex flex-col items-center p-28 m-auto min-h-[30rem] xl:flex-row">
+      <section class="flex flex-col items-center px-10 py-28 sm:p-28 m-auto min-h-[30rem] xl:flex-row">
         <div class="dark:text-neutral-100">
           <h2 class="mt-[-2rem] mb-10 text-4xl font-extrabold">
             {guitarLessons?.generalInformationTitle}
@@ -32,7 +32,7 @@ export default component$(() => {
           </div>
         </div>
       </section>
-      <section class="flex flex-col p-28 pb-16 min-h-[30rem] bg-gray-100 dark:bg-blue-400">
+      <section class="flex flex-col px-10 py-28 sm:p-28 pb-16 min-h-[30rem] bg-gray-100 dark:bg-blue-400">
         <div class="dark:text-neutral-100">
           <h2 class="mt-[-2rem] mb-10 text-4xl font-extrabold">
             {guitarLessons?.curriculumTitle}
@@ -51,8 +51,8 @@ export default component$(() => {
           </div>
         </div>
       </section>
-      <section class="py-28 min-h-[30rem]">
-        <div class="dark:text-neutral-100 flex flex-col justify-center items-center px-28">
+      <section class="px-10 py-28 sm:p-28 min-h-[30rem]">
+        <div class="dark:text-neutral-100 flex flex-col justify-center items-center">
           <h2 class="mt-[-2rem] mb-10 text-4xl font-extrabold self-start">
             {guitarLessons?.pricingTitle}
           </h2>
@@ -71,7 +71,7 @@ export default component$(() => {
                 class="sr-only peer"
                 onClick$={() => (store.isHalfTerm = !store.isHalfTerm)}
               />
-              <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[118px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:mt-[2px] after:ml-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             </div>
             <span
               class={`ml-3 text-md text-gray-900 dark:text-gray-300 ${

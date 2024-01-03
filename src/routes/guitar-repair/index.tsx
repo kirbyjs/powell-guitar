@@ -17,11 +17,11 @@ export default component$(() => {
     <>
       <section class="point-guitar relative flex items-center justify-center flex-col min-h-[40rem]">
         <h1 class="text-white text-6xl p-10">{repair?.title}</h1>
-        <p class="text-white text-3xl max-w-5xl px-10">
+        <p class="text-white text-3xl max-w-5xl px-10 sm:px-28">
           {repair?.callToAction}
         </p>
       </section>
-      <section class="px-28 pt-20 m-auto min-h-[30rem]">
+      <section class="px-10 pt-20 sm:px-28 m-auto min-h-[30rem]">
         <div class="dark:text-neutral-100">
           <div class="text-xl">
             <ContentfulRichText
@@ -30,7 +30,7 @@ export default component$(() => {
           </div>
         </div>
       </section>
-      <section class="px-28 py-20 m-auto min-h-[30rem]">
+      <section class="px-10 pt-20 pb-10 sm:px-28 m-auto min-h-[30rem]">
         <div class="dark:text-neutral-100">
           <div class="text-xl services grid-rows-[30px_max-content] gap-4 grid-flow-col auto-rows-auto xl:grid">
             <ContentfulRichText json={repair?.services?.json as Document} />

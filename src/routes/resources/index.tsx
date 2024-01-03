@@ -45,7 +45,7 @@ export default component$(() => {
       <section class="point-guitar relative flex items-center justify-center flex-col min-h-[40rem]">
         <h1 class="text-white text-6xl p-10">{resources?.title}</h1>
       </section>
-      <section class="flex flex-col items-center px-28 pt-28 pb-20 m-auto min-h-[30rem] xl:flex-row">
+      <section class="flex flex-col items-start px-10 pt-20 pb-20 sm:px-28 m-auto min-h-[30rem]">
         <div class="dark:text-neutral-100">
           <div class="text-xl">
             <ContentfulRichText
@@ -55,7 +55,7 @@ export default component$(() => {
           </div>
         </div>
       </section>
-      <section class="flex flex-col px-28 pb-28 m-auto min-h-[30rem]">
+      <section class="flex flex-col px-10 pb-28 sm:px-28 m-auto min-h-[30rem]">
         <div class="dark:text-neutral-100">
           <div class="text-xl">
             <h2 class="mb-10 text-4xl font-extrabold text-left">FAQ</h2>

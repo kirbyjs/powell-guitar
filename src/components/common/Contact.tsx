@@ -25,6 +25,7 @@ export default component$(() => {
     wasFormSparkErrorThrown: false,
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => hcaptchaRef.value);
 
@@ -57,8 +58,8 @@ export default component$(() => {
           class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
           required
           value={store.name}
-          onChange$={(e) => {
-            store.name = e.target.value;
+          onChange$={(e: Event) => {
+            store.name = (e.target as HTMLTextAreaElement).value;
           }}
         />
       </div>
@@ -76,8 +77,8 @@ export default component$(() => {
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
           required
           value={store.email}
-          onChange$={(e) => {
-            store.email = e.target.value;
+          onChange$={(e: Event) => {
+            store.email = (e.target as HTMLTextAreaElement).value;
           }}
         />
       </div>
@@ -95,8 +96,8 @@ export default component$(() => {
           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           placeholder="Leave a comment..."
           value={store.message}
-          onChange$={(e) => {
-            store.message = e.target.value;
+          onChange$={(e: Event) => {
+            store.message = (e.target as HTMLTextAreaElement).value;
           }}
         ></textarea>
       </div>
