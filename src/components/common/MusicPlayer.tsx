@@ -38,7 +38,7 @@ function getSliderStyles(
 
   const progress = (currentTime / songDuration) * 100;
   const isDarkMode = theme === 'dark';
-  const lightSlider = `linear-gradient(to right, #eee ${progress}%, rgba(255, 255, 255, .3) ${progress}%)`;
+  const lightSlider = `linear-gradient(to right, rgba(255, 255, 255, .3) ${progress}%, #eee ${progress}%)`;
   const darkSlider = `linear-gradient(to right, #dadada ${progress}%, #9e9e9e ${progress}%)`;
 
   return {
@@ -151,10 +151,11 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
             }}
           >
             <ForwardStepIcon
-              class={`fill-amber-600 dark:fill-white ${
-                selectedSongIndex.value === songs.length - 1 &&
-                'fill-neutral-200 dark:fill-neutral-400'
-              }`}
+              class={
+                selectedSongIndex.value === songs.length - 1
+                  ? 'fill-neutral-200 dark:fill-neutral-400'
+                  : 'fill-amber-600 dark:fill-white'
+              }
             />
           </button>
         </div>
