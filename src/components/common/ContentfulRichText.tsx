@@ -2,13 +2,55 @@ import type {
   Document,
   AssetHyperlink,
   Hyperlink,
+  MARKS,
+  BLOCKS,
+  INLINES,
 } from '@contentful/rich-text-types';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import types from '@contentful/rich-text-types';
 import type { Options } from '@contentful/rich-text-react-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import type { JSXChildren, JSXNode } from '@builder.io/qwik';
 import type { Asset, AssetLink } from '~/types/contentful';
 import { component$ } from '@builder.io/qwik';
+
+const MARKS = {
+  BOLD: 'bold',
+  ITALIC: 'italic',
+  UNDERLINE: 'underline',
+  CODE: 'code',
+  SUPERSCRIPT: 'superscript',
+  SUBSCRIPT: 'subscript',
+};
+const INLINES = {
+  HYPERLINK: 'hyperlink',
+  ENTRY_HYPERLINK: 'entry-hyperlink',
+  ASSET_HYPERLINK: 'asset-hyperlink',
+  RESOURCE_HYPERLINK: 'resource-hyperlink',
+  EMBEDDED_ENTRY: 'embedded-entry-inline',
+  EMBEDDED_RESOURCE: 'embedded-resource-inline',
+};
+const BLOCKS = {
+  DOCUMENT: 'document',
+  PARAGRAPH: 'paragraph',
+  HEADING_1: 'heading-1',
+  HEADING_2: 'heading-2',
+  HEADING_3: 'heading-3',
+  HEADING_4: 'heading-4',
+  HEADING_5: 'heading-5',
+  HEADING_6: 'heading-6',
+  OL_LIST: 'ordered-list',
+  UL_LIST: 'unordered-list',
+  LIST_ITEM: 'list-item',
+  HR: 'hr',
+  QUOTE: 'blockquote',
+  EMBEDDED_ENTRY: 'embedded-entry-block',
+  EMBEDDED_ASSET: 'embedded-asset-block',
+  EMBEDDED_RESOURCE: 'embedded-resource-block',
+  TABLE: 'table',
+  TABLE_ROW: 'table-row',
+  TABLE_CELL: 'table-cell',
+  TABLE_HEADER_CELL: 'table-header-cell',
+};
 
 function buildOptions(assetMap: Map<string, Asset>): Options {
   const renderAssetHyperlink = (node: AssetHyperlink) => {

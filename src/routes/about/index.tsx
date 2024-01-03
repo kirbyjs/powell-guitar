@@ -21,7 +21,9 @@ export default component$(() => {
         <div class="flex justify-center flex-1">
           <img
             src={about?.profilePicture?.url}
-            alt="..."
+            alt="Aaron Powell"
+            height="400"
+            width="400"
             class="shadow rounded-full max-w-[400px] max-h-[400px] align-middle border-none"
           />
         </div>

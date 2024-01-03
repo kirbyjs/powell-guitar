@@ -9,6 +9,7 @@ import type {
   ResourcesStore,
 } from '~/types/contentful';
 import type { gqlResponse } from '~/hooks/gql';
+import { HeaderContext } from '~/types/header';
 
 export const landingCxt =
   createContextId<gqlResponse<LandingPageStore>>('landingCxt');
@@ -22,3 +23,4 @@ export const guitarRepairCxt =
 export const resourcesCxt =
   createContextId<gqlResponse<ResourcesStore>>('resourcesCxt');
 export const footerCxt = createContextId<gqlResponse<FooterStore>>('footerCxt');
+export const headerCxt = createContextId<HeaderContext>('headerCxt');

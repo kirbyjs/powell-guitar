@@ -67,20 +67,22 @@ export interface GuitarLessonsStore {
   guitarLessons: GuitarLessonsContentful;
 }
 
+export interface Song {
+  title: string;
+  artist: string;
+  description: string;
+  song: {
+    url: string;
+  };
+}
+
 export interface EventsContentful {
   title: string;
   generalInformation: {
     json: object;
   };
   songsCollection: {
-    items: {
-      title: string;
-      artist: string;
-      description: string;
-      song: {
-        url: string;
-      };
-    }[];
+    items: Song[];
   };
   backgroundImage: {
     url: string;

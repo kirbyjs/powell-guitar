@@ -22,9 +22,7 @@ export default component$(() => {
           {landingPage?.introduction}
         </p>
       </section>
-      <section class="flex items-end justify-center flex-col p-10 max-w-7xl m-auto min-h-[30rem]">
-        <Testimonials />
-      </section>
+      <Testimonials />
       <section class="flex items-center justify-center flex-col bg-blue-200 dark:bg-blue-400 px-10 py-28 m-auto min-h-[30rem]">
         <h2 class="pl-1 mt-[-2rem] mb-10 text-4xl font-extrabold text-white">
           Services

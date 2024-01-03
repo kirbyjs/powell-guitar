@@ -1,6 +1,5 @@
 import { component$ } from '@builder.io/qwik';
 import Button from '~/components/common/Button';
-import { Link } from '@builder.io/qwik-city';
 
 interface CardProps {
   header: string;
@@ -17,7 +16,9 @@ export default component$((props: CardProps) => {
         <img
           class="rounded-t-lg object-cover w-full h-60"
           src={props.imageSrc}
-          alt=""
+          width="360"
+          height="240"
+          alt="card image"
         />
       </a>
       <div class="flex flex-col p-5 lg:min-h-[300px] xl:min-h-[250px]">
@@ -29,7 +30,7 @@ export default component$((props: CardProps) => {
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
           {props.text}
         </p>
-        <Link class="mt-auto self-end" href={props.url}>
+        <a class="mt-auto self-end" href={props.url}>
           <Button class="inline-flex items-center px-3 py-2">
             More Info
             <svg
@@ -46,7 +47,7 @@ export default component$((props: CardProps) => {
               ></path>
             </svg>
           </Button>
-        </Link>
+        </a>
       </div>
     </div>
   );

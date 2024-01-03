@@ -1,53 +1,47 @@
-import ImgPowellguitar from '~/images/powellguitar.png?jsx';
+import ImgPowellGuitar from '~/images/powellguitar.png?jsx';
 import {
   component$,
-  useVisibleTask$,
-  useStore,
   useStyles$,
+  useOnDocument,
+  $,
+  useContext,
 } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
 import SunIcon from '~/components/icons/sun';
 import MoonIcon from '~/components/icons/moon';
 import headerStyles from './header.css?inline';
 import Button from '~/components/common/Button';
+import { headerCxt } from '~/context';
 
 export default component$(() => {
   useStyles$(headerStyles);
-  const store = useStore({
-    theme: 'light',
-    navShown: false,
-  });
-
-  useVisibleTask$(() => {
-    store.theme = localStorage.theme;
-  });
+  const store = useContext(headerCxt);
 
   return (
     <header class="max-w-6xl mx-auto px-4 py-5 sm:px-10 justify-between flex flex-row items-center">
-      <Link href="/" class="flex flex-row items-center gap-3">
-        <ImgPowellguitar class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
+      <a href="/" class="flex flex-row items-center gap-3">
+        <ImgPowellGuitar class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
         <span class="font-bold text-2xl sm:text-3xl dark:text-white">
           PowellGuitar
         </span>
-      </Link>
+      </a>
       <div class="w-full flex-grow lg:flex lg:items-center lg:pl-10 lg:w-auto text-amber-600 dark:text-white">
         <div
           class={`text-md ${
             store.navShown ? 'floating-nav top-[70px] sm:top-[90px]' : 'hidden'
           } lg:flex-grow lg:block lg:!relative lg:!p-0 lg:top-auto dark:bg-neutral-900`}
         >
-          <Link
+          <a
             href="/about"
             class="block pt-4 lg:inline-block lg:mt-0 hover: mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             About
-          </Link>
-          <Link
+          </a>
+          <a
             href="/guitar-lessons"
             class="block pt-4 lg:inline-block lg:mt-0 hover: mr-7 hover:text-amber-700 dark:hover:text-amber-300"
           >
             Lessons
-          </Link>
+          </a>
           <a
             href="/events"
             class="block pt-4 lg:inline-block lg:mt-0 mr-7 hover:text-amber-700 dark:hover:text-amber-300"
@@ -85,11 +79,11 @@ export default component$(() => {
             </svg>
           </Button>
         </div>
-        <Link href="/contact">
+        <a href="/contact">
           <Button type="button" inverse class="px-3 py-1 lg:px-4 lg:py-2">
             Contact
           </Button>
-        </Link>
+        </a>
         <div
           class="cursor-pointer"
           onClick$={() => {
