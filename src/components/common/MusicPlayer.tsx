@@ -140,10 +140,7 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
           >
             <BackwardStepIcon class="fill-amber-600 dark:fill-white" />
           </button>
-          <button
-            className="mx-12"
-            onClick$={isPaused.value ? onPlay : onPause}
-          >
+          <button class="mx-12" onClick$={isPaused.value ? onPlay : onPause}>
             {isPaused.value ? (
               <PlayIcon class="fill-amber-600 dark:fill-white" />
             ) : (
@@ -236,7 +233,7 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
           </button>
         </div>
         <button
-          className={`flex flex-row py-3 pl-3 pr-1 hover:bg-neutral-50 dark:hover:bg-blue-200 justify-center items-center rounded-md border dark:border-white-rgba ${
+          class={`flex flex-row py-3 pl-3 pr-1 hover:bg-neutral-50 dark:hover:bg-blue-200 justify-center items-center rounded-md border dark:border-white-rgba ${
             showSongList.value && 'bg-neutral-50 dark:bg-blue-200'
           }`}
           onClick$={() => {
