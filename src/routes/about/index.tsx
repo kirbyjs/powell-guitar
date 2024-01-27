@@ -36,11 +36,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'About - Powell Guitar',
+  title: 'About - PowellGuitar',
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content: 'Information about the owner of PowellGuitar, Aaron Powell.',
     },
   ],
 };

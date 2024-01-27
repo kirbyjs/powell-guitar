@@ -56,7 +56,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Aaron Powell is a professional guitarist based out of Des Moines, Iowa. Lessons offered to all ages and skill levels. Contact us for lessons, event music, or guitar and bass repair.',
     },
   ],
 };

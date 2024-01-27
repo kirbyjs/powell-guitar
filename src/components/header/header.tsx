@@ -13,7 +13,10 @@ export default component$(() => {
   return (
     <header class="max-w-6xl mx-auto px-4 py-5 sm:px-10 justify-between flex flex-row items-center">
       <a href="/" class="flex flex-row items-center gap-3">
-        <ImgPowellGuitar class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10" />
+        <ImgPowellGuitar
+          class="mt-1 mr-1 w-6 sm:mr-3 sm:w-10"
+          alt="PowellGuitar Logo"
+        />
         <span class="font-bold text-2xl sm:text-3xl dark:text-white">
           PowellGuitar
         </span>

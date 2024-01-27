@@ -76,7 +76,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Common lesson exercises and tabs. Also contains common question and answers for what a student will expect for the PowellGuitar curriculum.',
     },
   ],
 };
