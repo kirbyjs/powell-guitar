@@ -38,6 +38,7 @@ export default component$(() => {
               target="_blank"
             >
               <img
+                alt={`PowellGuitar's ${icon.socialMediaIcon.url.split('/').pop()?.replace('.svg', '')} page`}
                 src={icon.socialMediaIcon.url}
                 height="40"
                 width="36"

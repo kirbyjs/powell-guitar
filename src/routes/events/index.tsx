@@ -55,7 +55,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Create a unique quality to your wedding ceremony with timeless music arranged for the Classical Guitar.  Timeless treasures such as Jesu, Joy of Man’s Desiring, Ode to Joy, and Bridal Chorus have a distinct and newly found beauty when performed on the Classical Guitar.',
     },
   ],
 };

@@ -146,11 +146,12 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Guitar Lessons - Powell Guitar',
+  title: 'Guitar Lessons - PowellGuitar',
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Lessons are offered in a professionally run in-home setting of master guitar instructor and actively performing musician, Aaron Powell. Lessons are in 10 week terms, beginning January, June and September.',
     },
   ],
 };

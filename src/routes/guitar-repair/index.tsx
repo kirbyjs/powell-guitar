@@ -46,7 +46,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Have your guitar or bass set up by an actively performing musician with over 20 years of experience.',
     },
   ],
 };

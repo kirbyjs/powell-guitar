@@ -23,7 +23,8 @@ export const head: DocumentHead = {
   meta: [
     {
       name: 'description',
-      content: 'PowellGuitar',
+      content:
+        'Contact PowellGuitar with any questions that you may have about lessons, events, or repairs.',
     },
   ],
 };
