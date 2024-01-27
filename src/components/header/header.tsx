@@ -18,7 +18,7 @@ export default component$(() => {
           PowellGuitar
         </span>
       </a>
-      <div class="w-full flex-grow lg:flex lg:items-center lg:pl-10 lg:w-auto text-amber-600 dark:text-white">
+      <div class="w-full flex-grow lg:flex lg:items-center lg:pl-10 lg:w-auto text-amber-600 dark:text-white dark:bg-neutral-900">
         <div
           class={`text-md ${
             store.navShown ? 'floating-nav top-[70px] sm:top-[90px]' : 'hidden'
@@ -60,6 +60,7 @@ export default component$(() => {
         <div class="block lg:hidden">
           <Button
             inverse
+            selected={store.navShown}
             onClick$={() => (store.navShown = !store.navShown)}
             class="flex items-center px-3 py-2"
           >

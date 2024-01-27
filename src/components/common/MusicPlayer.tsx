@@ -68,10 +68,12 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
 
   if (audio.value) {
     audio.value.onpause = $(() => {
+      console.log('paused!!');
       isPaused.value = true;
     });
     audio.value.onplay = $(() => {
       isPaused.value = false;
+      console.log('playing!!');
     });
     audio.value.ontimeupdate = $((event: Event) => {
       const target = event.target as HTMLAudioElement;
@@ -88,20 +90,20 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
     });
   }
 
-  const onPlay = $(() => {
+  const onPlay = $(async () => {
     if (!audio.value) {
       audio.value = new Audio(selectedSong.song.url);
       setVolume(audio.value, volumeRef.value?.value);
     }
 
-    audio.value.play();
+    await audio.value.play();
     isPaused.value = false;
   });
   const onPause = $(() => {
     audio.value?.pause();
     isPaused.value = true;
   });
-  const onSongChange = $((songIndex: number, alwaysPlay = false) => {
+  const onSongChange = $(async (songIndex: number, alwaysPlay = false) => {
     const wasPreviouslyPaused = isPaused.value;
     isPaused.value = true;
     audio.value?.pause();
@@ -114,7 +116,8 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
     setVolume(audio.value, volumeRef.value?.value);
 
     if (!wasPreviouslyPaused || alwaysPlay) {
-      audio.value.play();
+      await audio.value.play();
+      isPaused.value = false;
     }
   });
 
@@ -137,7 +140,10 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
           >
             <BackwardStepIcon class="fill-amber-600 dark:fill-white" />
           </button>
-          <button class="mx-12" onClick$={isPaused.value ? onPlay : onPause}>
+          <button
+            className="mx-12"
+            onClick$={isPaused.value ? onPlay : onPause}
+          >
             {isPaused.value ? (
               <PlayIcon class="fill-amber-600 dark:fill-white" />
             ) : (
@@ -229,6 +235,17 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
             <VolumeHighIcon class="ml-2 fill-amber-600 dark:fill-white" />
           </button>
         </div>
+        <button
+          className={`flex flex-row py-3 pl-3 pr-1 hover:bg-neutral-50 dark:hover:bg-blue-200 justify-center items-center rounded-md border dark:border-white-rgba ${
+            showSongList.value && 'bg-neutral-50 dark:bg-blue-200'
+          }`}
+          onClick$={() => {
+            showSongList.value = !showSongList.value;
+          }}
+        >
+          <ListIcon class="fill-neutral-400 dark:fill-black" />
+          <MusicIcon class="relative left-[-7px] text-[10px] fill-amber-600 dark:fill-white" />
+        </button>
         {showSongList.value && (
           <ul class="absolute right-0 bg-gray-100 dark:bg-blue-400 z-20 bottom-0 lg:top-[-18rem] lg:h-72 overflow-y-scroll w-full lg:w-auto">
             <CloseIcon
@@ -261,17 +278,6 @@ export default component$<MusicPlayerProps>((props: MusicPlayerProps) => {
             })}
           </ul>
         )}
-        <button
-          class={`flex flex-row py-3 pl-3 pr-1 hover:bg-neutral-50 dark:hover:bg-blue-200 justify-center items-center rounded-md border dark:border-white-rgba ${
-            showSongList.value && 'bg-neutral-50 dark:bg-blue-200'
-          }`}
-          onClick$={() => {
-            showSongList.value = !showSongList.value;
-          }}
-        >
-          <ListIcon class="fill-neutral-400 dark:fill-black" />
-          <MusicIcon class="relative left-[-7px] text-[10px] fill-amber-600 dark:fill-white" />
-        </button>
       </div>
     </div>
   );
