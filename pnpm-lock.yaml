@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@builder.io/qwik':
-    specifier: ^1.4.1
-    version: 1.4.1(@types/node@20.11.7)(undici@6.5.0)
+    specifier: 1.4.0
+    version: 1.4.0(@types/node@20.11.7)(undici@6.5.0)
   '@builder.io/qwik-city':
-    specifier: ^1.4.1
-    version: 1.4.1(@types/node@20.11.7)
+    specifier: 1.4.0
+    version: 1.4.0(@types/node@20.11.7)
   '@contentful/rich-text-from-markdown':
     specifier: ^15.16.12
     version: 15.16.12
@@ -42,7 +42,7 @@ dependencies:
 devDependencies:
   '@builder.io/qwik-react':
     specifier: 0.5.1
-    version: 0.5.1(@builder.io/qwik@1.4.1)(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.5.1(@builder.io/qwik@1.4.0)(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
   '@emotion/react':
     specifier: 11.11.3
     version: 11.11.3(@types/react@18.2.48)(react@18.2.0)
@@ -195,8 +195,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@builder.io/qwik-city@1.4.1(@types/node@20.11.7):
-    resolution: {integrity: sha512-SUNxptxOkJJEZN0X1o0SkR2f+8NqAONXKMSAhM6iOfzhJd9ceFpEoz2Jl1oalrZrWnPWVu386EB9f5899fhWAg==}
+  /@builder.io/qwik-city@1.4.0(@types/node@20.11.7):
+    resolution: {integrity: sha512-6/ThkI+thTjO/bMAW6kas5wmRS/IOTCCLLg6z7DJPZ3PK/0YX/geBhxHC9udO9B7CxhgVJP3O0Mftl0DAZtztw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     dependencies:
       '@mdx-js/mdx': 2.3.0
@@ -220,7 +220,7 @@ packages:
       - terser
     dev: false
 
-  /@builder.io/qwik-react@0.5.1(@builder.io/qwik@1.4.1)(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0):
+  /@builder.io/qwik-react@0.5.1(@builder.io/qwik@1.4.0)(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-bUZTloWAKeh21r5O6dyCSW8wzeDDvNfYC/AxXMSZLagxVRtC3B8NTqGHV8xNFXI+x/RAPD6pBAeCFipQVTJtNw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
@@ -230,15 +230,15 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0
     dependencies:
-      '@builder.io/qwik': 1.4.1(@types/node@20.11.7)(undici@6.5.0)
+      '@builder.io/qwik': 1.4.0(@types/node@20.11.7)(undici@6.5.0)
       '@types/react': 18.2.48
       '@types/react-dom': 18.2.18
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@builder.io/qwik@1.4.1(@types/node@20.11.7)(undici@6.5.0):
-    resolution: {integrity: sha512-FXUxwjUeMlJp8zpIh0GBFcQdFn/+2OQ+gPeLA95gTZsN9x7CIRBoQ5W4IIp3PgWuusKjLzcZM1/BKxi7eXIw7Q==}
+  /@builder.io/qwik@1.4.0(@types/node@20.11.7)(undici@6.5.0):
+    resolution: {integrity: sha512-IZc7Mt7GLuBUWatWmagdocTfPJPCEHUraTiPMebkz0XFjLikM4Kb/M2bcd1C8zqyZfj+fYHB4z6+qlcn0sKLyQ==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     hasBin: true
     peerDependencies:
