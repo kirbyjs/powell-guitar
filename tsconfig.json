@@ -18,9 +18,9 @@
     "noEmit": true,
     "types": ["node", "vite/client", "@hcaptcha/types"],
     "paths": {
-      "~/*": ["./src/*"],
-    },
+      "~/*": ["./src/*"]
+    }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src"],
+  "include": ["src"]
 }
