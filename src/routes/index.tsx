@@ -40,7 +40,7 @@ export default component$(() => {
         </div>
       </section>
       <section class="flex justify-center p-10 m-auto min-h-[30rem]">
-        <div class="py-8 lg:py-16 px-4 mx-auto w-full max-w-screen-md">
+        <div class="py-8 lg:py-16 px-4 mx-auto w-full max-w-(--breakpoint-md)">
           <h2 class="mb-4 text-4xl font-extrabold text-center text-gray-900 dark:text-white">
             Contact Us
           </h2>

@@ -24,7 +24,7 @@ export default component$(() => {
             alt="Aaron Powell"
             height="400"
             width="400"
-            class="shadow rounded-full max-w-[400px] max-h-[400px] align-middle border-none"
+            class="shadow-sm rounded-full max-w-[400px] max-h-[400px] align-middle border-none"
           />
         </div>
         <p class="pt-10 text-xl leading-10 max-w-7xl text-gray-900 dark:text-neutral-100 xl:pl-10 xl:pt-0">

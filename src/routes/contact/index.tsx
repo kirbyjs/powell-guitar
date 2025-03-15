@@ -8,7 +8,7 @@ export default component$(() => {
 
   return (
     <section class="flex flex-col items-center px-5 py-20 sm:p-20 m-auto min-h-[978px] sm:min-h-[960px] bg-gray-200 dark:bg-gray-800">
-      <div class="py-8 lg:py-16 px-4 mx-auto w-full max-w-screen-md">
+      <div class="py-8 lg:py-16 px-4 mx-auto w-full max-w-(--breakpoint-md)">
         <h1 class="mb-4 text-5xl font-extrabold text-center text-gray-900 dark:text-white">
           Contact Us
         </h1>

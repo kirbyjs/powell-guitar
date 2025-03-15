@@ -12,7 +12,7 @@ export default component$((props: ButtonProps) => {
     ...otherProps,
   };
   let classes =
-    'text-sm text-center rounded sm:w-fit focus:ring-4 focus:outline-none focus:ring-primary-300 ';
+    'text-sm text-center rounded-sm sm:w-fit focus:ring-4 focus:outline-hidden focus:ring-primary-300 ';
 
   if (inverse) {
     classes += 'border ';
