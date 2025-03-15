@@ -71,7 +71,7 @@ export default component$(() => {
                 class="sr-only peer"
                 onClick$={() => (store.isHalfTerm = !store.isHalfTerm)}
               />
-              <div class="w-12 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:mt-[2px] after:ml-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <div class="w-12 h-6 bg-gray-200 peer-focus:outline-hidden peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:mt-[2px] after:ml-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             </div>
             <span
               class={`ml-3 text-md text-gray-900 dark:text-gray-300 ${
@@ -86,7 +86,7 @@ export default component$(() => {
               ({ perSessionPrice, numberOfSessions, header }) => (
                 <div
                   key={header}
-                  class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
+                  class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow-sm dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
                 >
                   <h3 class="mb-4 text-2xl font-semibold">{header}</h3>
 
@@ -104,7 +104,7 @@ export default component$(() => {
                   <ul role="list" class="mb-8 space-y-4 text-xl">
                     <li class="flex items-center space-x-3 ml-10 lg:ml-5 xl:ml-10">
                       <svg
-                        class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                        class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ export default component$(() => {
                     {!store.isHalfTerm && (
                       <li class="flex items-center space-x-3 ml-10 lg:ml-5 xl:ml-10">
                         <svg
-                          class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
+                          class="shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"

@@ -11,7 +11,7 @@ interface CardProps {
 export default component$((props: CardProps) => {
   return (
     <a href={props.url}>
-      <div class="max-w-sm bg-white rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 lg:flex-1">
+      <div class="max-w-sm bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 lg:flex-1">
         <img
           class="rounded-t-lg object-cover w-full h-60"
           src={props.imageSrc}

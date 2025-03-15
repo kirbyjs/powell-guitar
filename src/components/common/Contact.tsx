@@ -55,7 +55,7 @@ export default component$(() => {
           type="text"
           id="name"
           name="name"
-          class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
+          class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-xs dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
           required
           value={store.name}
           onChange$={(e: Event) => {
@@ -74,7 +74,7 @@ export default component$(() => {
           type="email"
           id="email"
           name="email"
-          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
+          class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:shadow-sm-light"
           required
           value={store.email}
           onChange$={(e: Event) => {
@@ -93,7 +93,7 @@ export default component$(() => {
           id="message"
           name="message"
           rows={6}
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-xs border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
           placeholder="Leave a comment..."
           value={store.message}
           onChange$={(e: Event) => {
