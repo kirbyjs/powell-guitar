@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
           version: 8
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -41,7 +41,7 @@ jobs:
         run: |
           echo "$GCP_SA_KEY" > /opt/gcp_key.json
           export GOOGLE_APPLICATION_CREDENTIALS=/opt/gcp_key.json
-          firebase deploy --only functions:ssrDev
+          firebase deploy --only functions:ssrDev --force
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_POWELLGUITAR_DEBE0 }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
